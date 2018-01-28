@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="AppConf">
+
+<head>
+    <title>Embarcadero conference</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/angular.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    <script type="text/javascript">
+        angular.module("AppConf", []);
+        angular.module("AppConf").controller("AppConfCrtl", function($scope) {
+            $scope.palestrantes = [{
+                nome: "nando",
+                email: "nando.bes@gmail.com"
+            }];
+
+
+            $scope.AdicionarPalestrante = function(palestrante) {
+                $scope.palestrantes.push(palestrante);
+
+            }
+
+        })
+
+    </script>
+
+    <style type="text/css">
+        .jumbotron {
+            width: 500px;
+            margin-right: auto;
+            margin-left: auto;
+
+        }
+
+        h4 {
+            text-align: center;
+            text-decoration-color: rgba(#1c728e, 0.85)
+        }
+
+        .form-control {
+            margin-bottom: 5px;
+
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="jumbotron" ng-controller="AppConfCrtl">
+        <h4>Cadastro de palestrantes</h4>
+        <table class="table table-striped">
+            <tr/>
+
+            <th>Nome</th>
+            <th>Email</th>
+            </tr>
+            <tr ng-repeat="palestrante in palestrantes">
+                <td>{{palestrante.nome}}</td>
+                <td>{{palestrante.email}}</td>
+            </tr>
+
+        </table>
+        <hr>
+        <input class="form-control" type="text" name="pname" placeholder="nome" ng-model="palestrante.nome">
+        <input class="form-control" type="text" name="pemail" placeholder="email" ng-model="palestrante.email">
+        <button ng-click="AdicionarPalestrante(palestrante)" class="btn btn-block btn-primary">Adicionar Palestrante</button> {{palestrante}}
+
+
+    </div>
+
+
+</body>
+
+</html>
