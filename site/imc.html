@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 05</title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/aula05.js"></script>
+
+
+</head>
+
+<body>
+    <div class="jumbotron">
+        <form class="form-control" id="form" action="">
+            <fieldset>
+                <legend class="label">Calculo IMC</legend>
+
+                <label for="kilos">Kilo</label>
+                <br>
+                <input name="kilos" type="text" />
+                <table width="200" border="1" class="table-striped table-bordered">
+                  
+				<br>
+                
+
+
+                <label for="metros">Metros</label>
+                <br>
+                <input type="text" name="metros" />
+                <br>
+                <label>
+
+                <label for="cm">Centimetros</label>
+                <br>
+                <input type="text" name="cm" />
+                <br>
+
+
+                <label for="imc">IMC</label>
+                <br>
+                <input type="text" name="imc" disabled="disabled" />
+                <br><br>
+
+                <input type="text" name="msg" disabled="disabled" />
+                <hr>
+
+                <a href="#" onclick="calcularIMC();">Calcular</a>
+
+
+            </fieldset>
+
+        </form>
+
+        <table class="table table-responsive table-striped">
+            <tr>
+                <th>IMC</th>
+                <th>Classficação</th>
+            </tr>
+            <tr>
+                <td>&lt; 20</td>
+                <td>Abaixo do Peso</td>
+            </tr>
+            <tr>
+                <td>20 a 25</td>
+                <td>Peso Ideal</td>
+            </tr>
+            <tr>
+                <td>25 a 30</td>
+                <td>Sobrepeso</td>
+            </tr>
+            <tr>
+                <td>30 a 35</td>
+                <td>Obesidade Moderada</td>
+            </tr>
+            <tr>
+                <td>35 a 40</td>
+                <td>Obesidade Severa</td>
+            </tr>
+            <tr>
+                <td>40 a 50</td>
+                <td>Obesidade Morbida</td>
+            </tr>
+            <tr>
+                <td>&gt; 50</td>
+                <td>Super Obesidade</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>
