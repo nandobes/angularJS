@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="AppCidades">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tabela de Municipios</title>
+    <script type="text/javascript" src="angular.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+    <script type="text/javascript">
+        angular.module("AppCidades", []);
+        angular.module("AppCidades", []).controller("AppCidadesCtrl", function ($scope, $http) {
+            var carregaCidades = function(){
+                $http({method :'GET',url:'http://localhost:8080/datasnap/rest/tservermethods1/cliente'}).then(function(success){
+                    $scope.cidades =success.data.result[0];
+                },function(error){
+                    $scope.msg = error;
+                
+                });
+            };
+            carregaCidades();
+        });
+    </script>
+    <style type="text/css">
+        .jumbotron {
+            margin-left: auto;
+            
+            margin-right: auto;
+            width: 900px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="jumbotron" ng-controller="AppCidadesCtrl">
+        <h2>Lista da Clientes</h2>
+        <label>Pesquisa: </label><input class="form-control" type="search" name="" ng-model="termo">
+           <table class="table table-striped">
+            <tr>
+                <th>
+                    <a href="#" ng-click="ordem = 'CODIGO'; invertido = !invertido">ID_CLIENTE</th>
+                <th>
+                    <a href="#" ng-click="ordem = 'CIDADE'; invertido = !invertido">CLIENTE</th>
+                <th>
+                    <a href="#" ng-click="ordem = 'UF'; invertido = !invertido">ENDERECO</th>
+                <th>
+                    <a href="#" ng-click="ordem = 'CEP'; invertido = !invertido">BAIRRO</th>
+                <th>
+                    <a href="#" ng-click="ordem = 'IBGE'; invertido = !invertido">CIDADE</th>
+                <th>
+                    <a href="#" ng-click="ordem = 'ESTADO'; invertido = !invertido">UF</th>
+                
+            </tr>
+            <tr ng-repeat="cidade in cidades | filter:termo | orderBy:ordem:invertido ">
+                
+                <td>{{cidade.ID_CLIENTE}}</td>
+                <td>{{cidade.CLIENTE}}</td>
+                <td>{{cidade.ENDERECO}}</td>
+                <td>{{cidade.BAIRRO}}</td>
+                <td>{{cidade.CIDADE}}</td>
+                <td>{{cidade.UF}}</td>
+               
+
+            </tr>
+        </table>
+        {{error}}
+    </div>
+</body>
+</html>
